@@ -1,5 +1,5 @@
 export const Header = () => {
-    
+
     return (
         <header className="container mx-auto">
             <div className="p-3">
@@ -10,7 +10,7 @@ export const Header = () => {
                     <input type="text" className="w-3/4 p-2 text-2xl text-black outline-none rounded-md" placeholder="Find what you need ?" />
                 </form>
             </div>
-            <div className="my-2 flex justify-center items-center">
+            <div className="my-2 flex justify-center items-center text-white">
                 <button className="px-3 py-2 text-2xl bg-slate-500 rounded-md mx-3">
                     Electronic
                 </button>

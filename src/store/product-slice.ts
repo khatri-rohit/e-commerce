@@ -58,14 +58,24 @@ const initialState: ProductState = {
 
 export const fetchProducts = createAsyncThunk(
     "ecommerce/fetchProducts",
-    async () => {
+    async (queryParams) => {
+        const { limit, skip, query } = queryParams;
+
+        console.log(limit, skip, query);
+        const queryString = new URLSearchParams({
+            limit: limit.toString(),
+            skip: skip.toString(),
+        }).toString();
+
+        const url = `https://dummyjson.com/products/search?q=${query}&${queryString}`;
+
         const requestOptions = {
             method: "GET",
             redirect: "follow"
         };
 
         try {
-            const response = await fetch("https://dummyjson.com/products?limit=0&skip=0", requestOptions);
+            const response = await fetch(url, requestOptions);
 
             if (!response.ok) {
                 throw new Error("Netwrok response was not OK");
